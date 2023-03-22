@@ -14,7 +14,7 @@ class SplashScreenActivity : AppCompatActivity() {
        // setContentView(R.layout.activity_splash_screen)
         Log.d("izhu","SINI OKKK")
         Handler(Looper.getMainLooper()).postDelayed(Runnable{
-            val i = Intent(this@SplashScreenActivity, MainActivity::class.java)
+            val i = Intent(this@SplashScreenActivity, WebActivity::class.java)
             startActivity(i)
             finish()
             Log.d("izhu","SINI")
