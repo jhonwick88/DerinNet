@@ -18,7 +18,7 @@ import androidx.appcompat.app.AppCompatActivity
 class WebActivity : AppCompatActivity() {
     private lateinit var webView: WebView
     private lateinit var progressBar: ProgressBar
-    private var mainUrl : String = "https://derin.rlradius.com/"
+    private var mainUrl : String = "https://derin.rlradius.com/adminrad"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.webview_activity)
