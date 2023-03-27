@@ -8,7 +8,7 @@ android {
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.pintarmedia.derinnet"
+        applicationId "com.pintarmedia.derinnetadmin"
         minSdk 23
         targetSdk 33
         versionCode 1
