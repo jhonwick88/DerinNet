@@ -1,8 +1,7 @@
 package com.pintarmedia.derinnet
 
-import android.content.Intent
+import android.Manifest
 import android.graphics.Bitmap
-import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -13,6 +12,7 @@ import android.widget.ProgressBar
 import android.window.OnBackInvokedDispatcher
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 
 
 class WebActivity : AppCompatActivity() {
@@ -42,6 +42,12 @@ class WebActivity : AppCompatActivity() {
                     }
                 })
         }
+        ActivityCompat.requestPermissions(
+            this, arrayOf(
+                Manifest.permission.ACCESS_FINE_LOCATION,
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            ), 0
+        )
         webView.settings.javaScriptEnabled = true
         webView.settings.loadWithOverviewMode = true
         webView.webViewClient = object : WebViewClient(){
@@ -82,6 +88,14 @@ class WebActivity : AppCompatActivity() {
                     progressBar.visibility = View.GONE
                 }
                 super.onProgressChanged(view, newProgress)
+            }
+
+            override fun onGeolocationPermissionsShowPrompt(
+                origin: String?,
+                callback: GeolocationPermissions.Callback?
+            ) {
+                callback!!.invoke(origin,true,false)
+               // super.onGeolocationPermissionsShowPrompt(origin, callback)
             }
         }
         webView.loadUrl(mainUrl)
